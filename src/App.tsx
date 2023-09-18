@@ -1,10 +1,13 @@
 import { GlobalStyles } from './GlobalStyles';
+import { Header } from './components/Header/Header';
+import { PokemonList } from './components/PokemonList/PokemonList';
 
 function App() {
 	return (
 		<>
 			<GlobalStyles />
-			<h1>Vite + React + TypeScript + Styled Component</h1>
+			<Header />
+			<PokemonList />
 		</>
 	);
 }
