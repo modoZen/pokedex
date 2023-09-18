@@ -1,3 +1,5 @@
+import { pokemonTypes } from '../../utils/pokemonTypes';
+import { PokemonType } from '../PokemonType/PokemonType';
 import {
 	PokemonCardContainer,
 	PokemonCardImg,
@@ -7,18 +9,26 @@ import {
 } from './PokemonCard.styled';
 
 export const PokemonCard = () => {
+	const name = 'lapras';
+	const sprites =
+		'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png';
+	const types = ['water', 'ice'];
+
 	return (
-		<PokemonCardContainer>
+		<PokemonCardContainer types={types}>
 			<PokemonCardImgWrapper>
-				<PokemonCardImg
-					src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png'
-					alt='lapras'
-				/>
+				<PokemonCardImg src={sprites} alt={name} />
 			</PokemonCardImgWrapper>
-			<PokemonCardName>lapras</PokemonCardName>
+			<PokemonCardName>{name}</PokemonCardName>
 			<PokemonCardTypeWrapper>
-				<div>Agua </div>
-				<div>Hielo</div>
+				{types.map(pokemonType => (
+					<PokemonType
+						key={pokemonType}
+						type={pokemonType}
+						color={pokemonTypes[pokemonType].color}
+						letterFont={pokemonTypes[pokemonType].letterFont}
+					/>
+				))}
 			</PokemonCardTypeWrapper>
 		</PokemonCardContainer>
 	);

@@ -6,8 +6,8 @@ export const PokemonList: FC = () => {
 	const pokemons = Array(14).fill('');
 	return (
 		<PokemonListContainer>
-			{pokemons.map(() => (
-				<PokemonCard />
+			{pokemons.map((_, index) => (
+				<PokemonCard key={index} />
 			))}
 		</PokemonListContainer>
 	);

@@ -1,8 +1,18 @@
 import styled from 'styled-components';
+import { pokemonTypes } from '../../utils/pokemonTypes';
 
-export const PokemonCardContainer = styled.div`
-	background: linear-gradient(0deg, ${'#539AE2' + 50}, ${'#70CBD4' + 50});
-	color: #539ae2;
+interface PokemonCardContainerProps {
+	types: string[];
+}
+
+export const PokemonCardContainer = styled.div<PokemonCardContainerProps>`
+	background: ${({ types }) =>
+		types.length > 1
+			? `linear-gradient(0deg, ${types
+					.map(type => pokemonTypes[type].color + 50)
+					.join(', ')})`
+			: ''};
+	color: ${({ types }) => pokemonTypes[types[0]].color};
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
