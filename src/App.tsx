@@ -1,17 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { GlobalStyles } from './GlobalStyles';
 import { Header } from './components/Header/Header';
 import { PokemonList } from './components/PokemonList/PokemonList';
 import { getPokemonListWithDetail } from './api/pokeApi';
-import { Pokemon } from './domain/pokemon-data';
+import { useAppDispatch, useAppSelector } from './store';
+import { setPokemons } from './store/pokemonSlice';
 
 function App() {
-	const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+	const pokemons = useAppSelector(state => state.pokemonState.pokemons);
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		const fetchPokemon = async () => {
 			const data = await getPokemonListWithDetail();
-			setPokemons(data);
+			dispatch(setPokemons(data));
 		};
 
 		fetchPokemon();
