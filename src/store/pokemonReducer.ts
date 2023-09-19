@@ -30,7 +30,9 @@ export const fetchPokemons = (): AppThunk => async dispatch => {
 	} catch (error) {
 		dispatch(setError(error));
 	} finally {
-		dispatch(setLoading(false));
+		setTimeout(() => {
+			dispatch(setLoading(false));
+		}, 1500);
 	}
 };
 

@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import Essentiarum from './assets/fonts/Essentiarum.ttf';
 
 export const GlobalStyles = createGlobalStyle`
-  * {
+  *, :after, :before {
     box-sizing: border-box;
   }
   body {
