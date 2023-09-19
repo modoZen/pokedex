@@ -4,7 +4,7 @@ import { PokemonsData } from '../domain/pokemons-data';
 const urlBase = 'https://pokeapi.co/api/v2/';
 
 export const getPokemonList = async () => {
-	const res = await fetch(urlBase + 'pokemon?limit=12&offset=0');
+	const res = await fetch(urlBase + 'pokemon?limit=18&offset=0');
 	const data = (await res.json()) as PokemonsData;
 	return data.results;
 };
