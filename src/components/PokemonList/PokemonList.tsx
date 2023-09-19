@@ -1,13 +1,17 @@
 import { FC } from 'react';
 import { PokemonListContainer } from './PokemonList.styled';
 import { PokemonCard } from '../PokemonCard/PokemonCard';
+import { Pokemon } from '../../domain/pokemon-data';
 
-export const PokemonList: FC = () => {
-	const pokemons = Array(14).fill('');
+interface PokemonListProps {
+	pokemons: Pokemon[];
+}
+
+export const PokemonList: FC<PokemonListProps> = ({ pokemons }) => {
 	return (
 		<PokemonListContainer>
-			{pokemons.map((_, index) => (
-				<PokemonCard key={index} />
+			{pokemons.map((pokemon, index) => (
+				<PokemonCard key={index} pokemon={pokemon} />
 			))}
 		</PokemonListContainer>
 	);

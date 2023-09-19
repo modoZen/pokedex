@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const PokemonListContainer = styled.div`
 	margin: 0 auto;
+	max-width: 1700px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;

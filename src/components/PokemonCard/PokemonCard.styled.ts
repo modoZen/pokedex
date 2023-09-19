@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import { pokemonTypes } from '../../utils/pokemonTypes';
 
-interface PokemonCardContainerProps {
+interface Props {
 	types: string[];
 }
 
-export const PokemonCardContainer = styled.div<PokemonCardContainerProps>`
+export const PokemonCardContainer = styled.div<Props>`
 	background: ${({ types }) =>
 		types.length > 1
 			? `linear-gradient(0deg, ${types
 					.map(type => pokemonTypes[type].color + 50)
 					.join(', ')})`
-			: ''};
+			: pokemonTypes[types[0]].color + 50};
 	color: ${({ types }) => pokemonTypes[types[0]].color};
 	display: flex;
 	flex-direction: column;
@@ -37,9 +37,14 @@ export const PokemonCardContainer = styled.div<PokemonCardContainerProps>`
 	}
 `;
 
-export const PokemonCardImgWrapper = styled.div`
-	background: linear-gradient(0deg, ${'#539AE2' + 50}, ${'#70CBD4' + 50});
-	color: #539ae2;
+export const PokemonCardImgWrapper = styled.div<Props>`
+	background: ${({ types }) =>
+		types.length > 1
+			? `linear-gradient(0deg, ${types
+					.map(type => pokemonTypes[type].color + 50)
+					.join(', ')})`
+			: pokemonTypes[types[0]].color + 50};
+	color: ${({ types }) => pokemonTypes[types[0]].color};
 	width: 50%;
 	min-height: 150px;
 	min-width: 150px;
@@ -65,7 +70,6 @@ export const PokemonCardName = styled.p`
 	font-weight: 600;
 	font-size: 1.5rem;
 	margin: 0;
-	color: #539ae2;
 	${PokemonCardContainer}:hover & {
 		font-weight: 700;
 	}
