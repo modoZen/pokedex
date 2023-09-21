@@ -34,6 +34,9 @@ export const PageButtonStyledWrapper = styled.div`
 	align-items: center;
 	flex-grow: 1;
 	gap: 0.25rem;
+	@media only screen and (max-width: 680px) {
+		display: none;
+	}
 `;
 
 export const PageButtonStyled = styled(PageButton)`
