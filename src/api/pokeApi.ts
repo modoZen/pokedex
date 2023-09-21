@@ -3,10 +3,11 @@ import { PokemonsData } from '../domain/pokemons-data';
 
 const urlBase = 'https://pokeapi.co/api/v2/';
 
-export const getPokemonList = async () => {
-	const res = await fetch(urlBase + 'pokemon?limit=18&offset=0');
+export const getPokemonData = async (cant: number, offset: number) => {
+	const url = `${urlBase}pokemon?limit=${cant}&offset=${offset}`;
+	const res = await fetch(url);
 	const data = (await res.json()) as PokemonsData;
-	return data.results;
+	return data;
 };
 
 export const getPokemonDetailByName = async (pokemonName: string) => {
@@ -15,8 +16,9 @@ export const getPokemonDetailByName = async (pokemonName: string) => {
 	return data;
 };
 
-export const getPokemonListWithDetail = async () => {
-	const pokemonList = await getPokemonList();
+export const getPokemonListWithDetail = async (
+	pokemonList: PokemonsData['results'],
+) => {
 	const pokemonListPromise = pokemonList.map(({ name }) =>
 		getPokemonDetailByName(name),
 	);
