@@ -1,5 +1,15 @@
-import { HeaderContainer } from './Header.styled';
+import {
+	HeaderContentStyled,
+	HeaderLogoStyled,
+	HeaderStyled,
+} from './Header.styled';
 
 export const Header = () => {
-	return <HeaderContainer>Pokedex</HeaderContainer>;
+	return (
+		<HeaderStyled>
+			<HeaderContentStyled>
+				<HeaderLogoStyled>Pokedex</HeaderLogoStyled>
+			</HeaderContentStyled>
+		</HeaderStyled>
+	);
 };
