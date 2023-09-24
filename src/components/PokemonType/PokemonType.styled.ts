@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { PokemonCardContainer } from '../PokemonCard/PokemonCard.styled';
 
 interface PokemonTypeContainerProps {
-	color: string;
+	$color: string;
 }
 
 export const PokemonTypeContainer = styled.div<PokemonTypeContainerProps>`
@@ -10,8 +10,8 @@ export const PokemonTypeContainer = styled.div<PokemonTypeContainerProps>`
 	align-items: center;
 	gap: 0.25rem;
 	padding: 0.125rem 0.75rem;
-	color: ${({ color }) => color};
-	background-color: ${({ color }) => `${color}50`};
+	color: ${({ $color }) => $color};
+	background-color: ${({ $color }) => `${$color}50`};
 	font-weight: 600;
 	border-style: solid;
 	border-color: currentColor;

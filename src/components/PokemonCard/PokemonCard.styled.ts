@@ -2,18 +2,18 @@ import styled from 'styled-components';
 import { pokemonTypes } from '../../utils/pokemonTypes';
 
 interface Props {
-	types: string[];
+	$types: string[];
 }
 
 export const PokemonCardContainer = styled.div<Props>`
 	/* justify-self: center; */
-	background: ${({ types }) =>
-		types.length > 1
-			? `linear-gradient(0deg, ${types
+	background: ${({ $types }) =>
+		$types.length > 1
+			? `linear-gradient(0deg, ${$types
 					.map(type => pokemonTypes[type].color + 50)
 					.join(', ')})`
-			: pokemonTypes[types[0]].color + 50};
-	color: ${({ types }) => pokemonTypes[types[0]].color};
+			: pokemonTypes[$types[0]].color + 50};
+	color: ${({ $types }) => pokemonTypes[$types[0]].color};
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -39,13 +39,13 @@ export const PokemonCardContainer = styled.div<Props>`
 `;
 
 export const PokemonCardImgWrapper = styled.div<Props>`
-	background: ${({ types }) =>
-		types.length > 1
-			? `linear-gradient(0deg, ${types
+	background: ${({ $types }) =>
+		$types.length > 1
+			? `linear-gradient(0deg, ${$types
 					.map(type => pokemonTypes[type].color + 50)
 					.join(', ')})`
-			: pokemonTypes[types[0]].color + 50};
-	color: ${({ types }) => pokemonTypes[types[0]].color};
+			: pokemonTypes[$types[0]].color + 50};
+	color: ${({ $types }) => pokemonTypes[$types[0]].color};
 	width: 50%;
 	min-height: 150px;
 	min-width: 150px;

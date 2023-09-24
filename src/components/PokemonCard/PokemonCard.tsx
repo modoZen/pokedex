@@ -21,8 +21,8 @@ export const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
 	const { name, sprites, types } = pokemon;
 
 	return (
-		<PokemonCardContainer types={types.map(type => type.type.name)}>
-			<PokemonCardImgWrapper types={types.map(type => type.type.name)}>
+		<PokemonCardContainer $types={types.map(type => type.type.name)}>
+			<PokemonCardImgWrapper $types={types.map(type => type.type.name)}>
 				<PokemonCardImg
 					src={
 						sprites.other?.['official-artwork'].front_default || imageNotFound

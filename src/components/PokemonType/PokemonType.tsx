@@ -8,7 +8,7 @@ interface Props {
 }
 export const PokemonType: FC<Props> = ({ type, color, letterFont }) => {
 	return (
-		<PokemonTypeContainer color={color}>
+		<PokemonTypeContainer $color={color}>
 			<div>
 				<PokemonTypeIcon>{letterFont}</PokemonTypeIcon>
 			</div>
