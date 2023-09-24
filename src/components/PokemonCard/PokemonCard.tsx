@@ -14,16 +14,19 @@ interface PokemonCardProps {
 	pokemon: Pick<Pokemon, 'name' | 'sprites' | 'types'>;
 }
 
+const imageNotFound =
+	'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+
 export const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
 	const { name, sprites, types } = pokemon;
-	// const sprites =
-	// 	'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png';
 
 	return (
 		<PokemonCardContainer types={types.map(type => type.type.name)}>
 			<PokemonCardImgWrapper types={types.map(type => type.type.name)}>
 				<PokemonCardImg
-					src={sprites.other?.['official-artwork'].front_default}
+					src={
+						sprites.other?.['official-artwork'].front_default || imageNotFound
+					}
 					alt={name}
 				/>
 			</PokemonCardImgWrapper>

@@ -6,6 +6,7 @@ interface Props {
 }
 
 export const PokemonCardContainer = styled.div<Props>`
+	/* justify-self: center; */
 	background: ${({ types }) =>
 		types.length > 1
 			? `linear-gradient(0deg, ${types
@@ -20,7 +21,7 @@ export const PokemonCardContainer = styled.div<Props>`
 	gap: 0.5rem;
 	max-height: 100%;
 	min-height: 250px;
-	width: 250px;
+	/* width: 15.625rem; */
 	padding: 0.625rem 0;
 	cursor: pointer;
 	border-style: solid;
@@ -69,6 +70,9 @@ export const PokemonCardName = styled.p`
 	text-transform: capitalize;
 	font-weight: 600;
 	font-size: 1.5rem;
+	min-height: 3.25rem;
+	display: flex;
+	align-items: center;
 	margin: 0;
 	${PokemonCardContainer}:hover & {
 		font-weight: 700;

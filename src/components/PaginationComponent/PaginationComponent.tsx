@@ -18,7 +18,7 @@ export const PaginationComponent = () => {
 
 	const [page, setPage] = useState(0);
 
-	const cant = 18;
+	const cant = 30;
 	const offset = cant * page;
 
 	const totalPages = Math.floor(count / cant);
