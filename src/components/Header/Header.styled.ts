@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 
-export const HeaderStyled = styled.header`
+interface Props {
+	$isDarkMode: boolean;
+}
+
+export const HeaderStyled = styled.header<Props>`
 	position: sticky;
 	top: 0;
-	z-index: 20;
-	background-color: #e5e7ebf2;
+	z-index: 10;
+	background-color: ${({ $isDarkMode }) =>
+		$isDarkMode ? '#1f2937f2' : '#e5e7ebf2'};
 	padding: 0.75rem 1rem;
+	transition-property: all;
+	transition-duration: 0.15s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const HeaderContentStyled = styled.div`
@@ -37,11 +45,3 @@ export const HeaderLogoStyled = styled.h1`
 	font-weight: bold;
 	color: #feca1b;
 `;
-
-// export const HeaderContainer = styled.h1`
-// 	text-align: center;
-// 	font-weight: bold;
-// 	padding: 0.75rem 0;
-// 	color: #feca1b;
-// 	font-size: 2.25rem;
-// `;

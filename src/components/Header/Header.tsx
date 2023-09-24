@@ -1,3 +1,5 @@
+import { useAppSelector } from '../../store';
+import { ToggleDark } from '../ToggleDark/ToggleDark';
 import {
 	HeaderContentStyled,
 	HeaderLogoStyled,
@@ -5,10 +7,12 @@ import {
 } from './Header.styled';
 
 export const Header = () => {
+	const { isDarkMode } = useAppSelector(state => state.uiState);
 	return (
-		<HeaderStyled>
+		<HeaderStyled $isDarkMode={isDarkMode}>
 			<HeaderContentStyled>
 				<HeaderLogoStyled>Pokedex</HeaderLogoStyled>
+				<ToggleDark />
 			</HeaderContentStyled>
 		</HeaderStyled>
 	);

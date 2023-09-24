@@ -6,7 +6,11 @@ import {
 } from 'react-headless-pagination';
 import styled from 'styled-components';
 
-export const PaginationStyled = styled(Pagination)`
+interface Props {
+	$isDarkMode: boolean;
+}
+
+export const PaginationStyled = styled(Pagination)<Props>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -24,7 +28,7 @@ export const PaginationStyled = styled(Pagination)`
 		padding-right: 0.125rem;
 		padding-left: 0.125rem;
 		text-align: center;
-		color: black;
+		color: ${({ $isDarkMode }) => ($isDarkMode ? 'white' : 'black')};
 	}
 `;
 
@@ -39,7 +43,7 @@ export const PageButtonStyledWrapper = styled.div`
 	}
 `;
 
-export const PageButtonStyled = styled(PageButton)`
+export const PageButtonStyled = styled(PageButton)<Props>`
 	width: 2.5rem;
 	height: 2.5rem;
 	cursor: pointer;
@@ -47,9 +51,11 @@ export const PageButtonStyled = styled(PageButton)`
 	justify-content: center;
 	align-items: center;
 	border-radius: 9999px;
-	background-color: #e5e7eb;
+	color: ${({ $isDarkMode }) =>
+		$isDarkMode ? 'rgb(243, 244, 246)' : 'rgb(107, 114, 128)'};
 	transition-property: all;
-	transition-duration: 150ms;
+	transition-duration: 0.15s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	&.activeClassName {
 		color: white;
@@ -57,32 +63,49 @@ export const PageButtonStyled = styled(PageButton)`
 	}
 
 	&.inactiveClassName {
-		color: rgb(107, 114, 128);
+		color: ${({ $isDarkMode }) =>
+			$isDarkMode ? 'rgb(243, 244, 246)' : 'rgb(107, 114, 128)'};
+		background-color: ${({ $isDarkMode }) =>
+			$isDarkMode ? 'rgb(75 ,85 ,99)' : ' #e5e7eb'};
+
+		&:hover {
+			background-color: #feca1b99;
+		}
 	}
 `;
 
-export const PrevButtonStyled = styled(PrevButton)`
+export const PrevButtonStyled = styled(PrevButton)<Props>`
 	display: flex;
 	align-items: center;
 	margin-right: 0.5rem;
 	cursor: pointer;
-	background-color: #e5e7eb;
+	background-color: ${({ $isDarkMode }) =>
+		$isDarkMode ? 'rgb(75, 85, 99)' : 'rgb(229, 231, 235)'};
+	color: ${({ $isDarkMode }) =>
+		$isDarkMode ? 'rgb(243, 244, 246)' : 'rgb(107, 114, 128)'};
 	border-radius: 0.5rem;
 	padding: 0.5rem 0.75rem;
-	color: rgb(107, 114, 128);
 	border-width: 0;
 	font-size: 14px;
+	transition-property: all;
+	transition-duration: 0.15s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
-export const NextButtonStyled = styled(NextButton)`
+export const NextButtonStyled = styled(NextButton)<Props>`
 	display: flex;
 	align-items: center;
 	margin-left: 0.5rem;
 	cursor: pointer;
-	background-color: #e5e7eb;
+	background-color: ${({ $isDarkMode }) =>
+		$isDarkMode ? 'rgb(75, 85, 99)' : 'rgb(229, 231, 235)'};
+	color: ${({ $isDarkMode }) =>
+		$isDarkMode ? 'rgb(243, 244, 246)' : 'rgb(107, 114, 128)'};
 	border-radius: 0.5rem;
 	padding: 0.5rem 0.75rem;
-	color: rgb(107, 114, 128);
 	border-width: 0;
 	font-size: 14px;
+	transition-property: all;
+	transition-duration: 0.15s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 `;

@@ -13,6 +13,7 @@ import { NextArrow } from '../Icons/NextArrow/NextArrow';
 
 export const PaginationComponent = () => {
 	const { count, prev, next } = useAppSelector(state => state.pokemonState);
+	const { isDarkMode } = useAppSelector(state => state.uiState);
 	const dispatch = useAppDispatch();
 
 	const [page, setPage] = useState(0);
@@ -40,9 +41,10 @@ export const PaginationComponent = () => {
 			edgePageCount={3}
 			middlePagesSiblingCount={2}
 			truncableClassName='truncableClassName'
+			$isDarkMode={isDarkMode}
 		>
 			{prev && (
-				<PrevButtonStyled>
+				<PrevButtonStyled $isDarkMode={isDarkMode}>
 					<PrevArrow />
 					Anterior
 				</PrevButtonStyled>
@@ -52,11 +54,12 @@ export const PaginationComponent = () => {
 				<PageButtonStyled
 					activeClassName='activeClassName'
 					inactiveClassName='inactiveClassName'
+					$isDarkMode={isDarkMode}
 				/>
 			</PageButtonStyledWrapper>
 
 			{next && (
-				<NextButtonStyled>
+				<NextButtonStyled $isDarkMode={isDarkMode}>
 					Siguiente
 					<NextArrow />
 				</NextButtonStyled>
