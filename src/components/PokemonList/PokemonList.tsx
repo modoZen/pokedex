@@ -8,6 +8,10 @@ interface PokemonListProps {
 }
 
 export const PokemonList: FC<PokemonListProps> = ({ pokemons }) => {
+	if (pokemons.length === 0) {
+		return <div style={{ minHeight: '80vh' }}></div>;
+	}
+
 	return (
 		<PokemonListContainer>
 			{pokemons.map((pokemon, index) => (

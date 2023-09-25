@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store';
-import { fetchPokemonData } from '../../store/pokemonReducer';
+import { useAppSelector } from '../../store';
 import {
 	NextButtonStyled,
 	PageButtonStyled,
@@ -10,28 +8,11 @@ import {
 } from './PaginationComponent.styled';
 import { PrevArrow } from '../Icons/PrevArrow/PrevArrow';
 import { NextArrow } from '../Icons/NextArrow/NextArrow';
+import { usePagination } from '../../hooks/usePagination';
 
 export const PaginationComponent = () => {
-	const { count, prev, next } = useAppSelector(state => state.pokemonState);
-	const { isDarkMode } = useAppSelector(state => state.uiState);
-	const dispatch = useAppDispatch();
-
-	const [page, setPage] = useState(0);
-
-	const cant = 30;
-	const offset = cant * page;
-
-	const totalPages = Math.floor(count / cant);
-
-	useEffect(() => {
-		dispatch(fetchPokemonData(cant, offset));
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [page]);
-
-	const handlePageChange = (newPage: number) => {
-		setPage(newPage);
-	};
+	const isDarkMode = useAppSelector(state => state.uiState.isDarkMode);
+	const { totalPages, prev, next, page, handlePageChange } = usePagination();
 
 	return (
 		<PaginationStyled

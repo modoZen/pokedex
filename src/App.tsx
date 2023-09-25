@@ -18,6 +18,7 @@ function App() {
 			<Header />
 			<PaginationComponent />
 			<PokemonList pokemons={pokemons} />
+			<PaginationComponent />
 		</Main>
 	);
 }

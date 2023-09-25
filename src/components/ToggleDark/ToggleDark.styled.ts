@@ -7,6 +7,7 @@ interface Props {
 export const ToggleDarkStyled = styled.button<Props>`
 	background-color: transparent;
 	position: relative;
+	height: 2.75rem;
 	padding: 0.625rem;
 	font-size: 0.875rem;
 	border-radius: 0.5rem;

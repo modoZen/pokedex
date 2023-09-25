@@ -9,6 +9,7 @@ interface PokemonState {
 	pokemons: Pokemon[];
 	prev: string | null;
 	next: string | null;
+	page: number;
 	count: number;
 }
 
@@ -17,6 +18,7 @@ const initialState: PokemonState = {
 	next: null,
 	prev: null,
 	count: 0,
+	page: 0,
 };
 
 export const pokemonSlice = createSlice({
@@ -30,6 +32,9 @@ export const pokemonSlice = createSlice({
 			state.count = action.payload.count;
 			state.next = action.payload.next;
 			state.prev = action.payload.previous;
+		},
+		setPage: (state, action: PayloadAction<number>) => {
+			state.page = action.payload;
 		},
 	},
 });
@@ -52,6 +57,6 @@ export const fetchPokemonData =
 		}
 	};
 
-export const { setPokemons, setPokemonData } = pokemonSlice.actions;
+export const { setPage, setPokemons, setPokemonData } = pokemonSlice.actions;
 
 export default pokemonSlice.reducer;
