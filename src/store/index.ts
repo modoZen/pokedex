@@ -8,6 +8,10 @@ export const store = configureStore({
 		pokemonState: pokemonReducer,
 		uiState: uiReducer,
 	},
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
