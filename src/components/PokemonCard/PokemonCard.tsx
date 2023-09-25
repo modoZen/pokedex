@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Pokemon } from '../../domain/pokemon-data';
+import { DetailedPokemon } from '../../domain/detailed-pokemon';
 import { pokemonTypes } from '../../utils/pokemonTypes';
 import { PokemonType } from '../PokemonType/PokemonType';
 import {
@@ -11,7 +11,7 @@ import {
 } from './PokemonCard.styled';
 
 interface PokemonCardProps {
-	pokemon: Pick<Pokemon, 'name' | 'sprites' | 'types'>;
+	pokemon: Pick<DetailedPokemon, 'name' | 'sprites' | 'types'>;
 }
 
 const imageNotFound =

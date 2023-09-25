@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { PokemonListContainer } from './PokemonList.styled';
 import { PokemonCard } from '../PokemonCard/PokemonCard';
-import { Pokemon } from '../../domain/pokemon-data';
+import { DetailedPokemon } from '../../domain/detailed-pokemon';
 
 interface PokemonListProps {
-	pokemons: Pokemon[];
+	pokemons: DetailedPokemon[];
 }
 
 export const PokemonList: FC<PokemonListProps> = ({ pokemons }) => {
